@@ -13280,17 +13280,7 @@ Matsen/Harris labs</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>It might be helpful to recognize the style of problem that needs each concept.</li>
-</ul>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>This isn't meant to be comprehensive, and is biased toward my industry experiences as both interviewer and interviewee.</li>
+<li>This isn't meant to be comprehensive, and is biased toward my experiences.</li>
 </ul>
 
 </div>
@@ -13407,11 +13397,18 @@ Matsen/Harris labs</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="General-case">General case<a class="anchor-link" href="#General-case">&#182;</a></h3><p><strong>Observation:</strong> if we had the list of all $(k-1)$-mers, we could generate all the $k$-mers by adding each of the possible 4 bases—<code>A</code>, <code>C</code>, <code>G</code>, and <code>T</code>—to each of the $(k-1)$-mers.</p>
-<p><strong>Recursion!</strong></p>
 
 </div>
 </div>
 </div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Recursion!</strong></p>
+
+</div>
+</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -13620,15 +13617,22 @@ No <code>numpy</code> not allowed!</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Less-naive-solution">Less naive solution<a class="anchor-link" href="#Less-naive-solution">&#182;</a></h3><p><strong>Observation:</strong> The submatrix of $\mathbf{A}$ that we need to sum is pretty similar if the elements of $\mathbf{B}$ are neighbors—we just need to add a sub-row and/or or a sub-column sum to the value of the neighbor.</p>
-<p><strong>Dynamic programming!</strong>
-$$
-B_{i j} = A_{i j} + B_{i-1,j} + B_{i,j-1} - B_{i-1,j-1}
-$$
-<em>whiteboard some rectangles</em></p>
+<p><em>whiteboard some rectangles</em></p>
 
 </div>
 </div>
 </div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Dynamic programming!</strong>
+$$
+B_{i j} = A_{i j} + B_{i-1,j} + B_{i,j-1} - B_{i-1,j-1}
+$$</p>
+
+</div>
+</div>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -13736,8 +13740,8 @@ $$
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>naive implementation: 2.81 seconds
-dynamic programming implementation: 0.00723 seconds
+<pre>naive implementation: 2.49 seconds
+dynamic programming implementation: 0.00694 seconds
 </pre>
 </div>
 </div>
@@ -13757,11 +13761,12 @@ dynamic programming implementation: 0.00723 seconds
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Problem-3:-half-pills">Problem 3: half pills<a class="anchor-link" href="#Problem-3:-half-pills">&#182;</a></h2><p>You have a prescription to take one half of a pill per day for 20 days but the pharmacist (who is too busy to divide pills for you) gives you 10 whole pills in a bottle.
+<h2 id="Problem-3:-half-pills">Problem 3: half pills<a class="anchor-link" href="#Problem-3:-half-pills">&#182;</a></h2><blockquote><p>You have a prescription to take one half of a pill per day for 20 days but the pharmacist (who is too busy to divide pills for you) gives you 10 whole pills in a bottle.
 On day 1, you remove a pill from the bottle, break it into two half pills, take one, and return the other half pill to the bottle.
 On all subsequent days you shake the bottle thoroughly and pour something out whatever comes out first - either a half pill or a whole pill; if it' s a half pill you take it and you're done for that day; if it's a whole pill, you split it into two half-pills, take one, and put the other back in the bottle, exactly like you did on day 1.
 On day 20 there can be only one half pill left in the bottle, but on day 19 there are two possibilities: either there is one whole pill or there are two half-pills left in the bottle.
 What is the probability that there are two half-pills in the bottle on day 19?</p>
+</blockquote>
 <p><em><a href="http://www.feynmanlectures.caltech.edu/info/exercises/half_pills.html">http://www.feynmanlectures.caltech.edu/info/exercises/half_pills.html</a></em></p>
 
 </div>
@@ -13828,7 +13833,7 @@ What is the probability that there are two half-pills in the bottle on day 19?</
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>simulation estimate: 0.76, 0.336 seconds
+<pre>simulation estimate: 0.762, 0.333 seconds
 </pre>
 </div>
 </div>
@@ -13859,11 +13864,18 @@ What is the probability that there are two half-pills in the bottle on day 19?</
 <li>There's no way to cycle in the state space</li>
 <li>The probability of hitting a state $(w,h)$ is the sum over all paths to that state, and each path is the product of the probabilities of each step.</li>
 </ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Dynamic programming!</strong></p>
 
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -13907,7 +13919,7 @@ What is the probability that there are two half-pills in the bottle on day 19?</
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
 <span class="n">prob_dyn</span> <span class="o">=</span> <span class="n">pill_prob</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dynamic programming solution estimate: </span><span class="si">{:.3}</span><span class="s1">, </span><span class="si">{:.3}</span><span class="s1"> seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prob_dyn</span><span class="p">,</span> <span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dynamic programming solution: </span><span class="si">{:.3}</span><span class="s1">, </span><span class="si">{:.3}</span><span class="s1"> seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prob_dyn</span><span class="p">,</span> <span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13924,7 +13936,7 @@ What is the probability that there are two half-pills in the bottle on day 19?</
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>dynamic programming solution estimate: 0.761, 0.000193 seconds
+<pre>dynamic programming solution: 0.761, 0.000315 seconds
 </pre>
 </div>
 </div>
